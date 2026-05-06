@@ -1,4 +1,5 @@
 from .merkez import BildirimMerkezi
+from .stratejiler import OncelikliGonderimStratejisi
 
 
 def main():
@@ -9,6 +10,9 @@ def main():
         merkez.push_gonder("cihaz-12345", "Yeni bildirim var."),
         merkez.bildirim_gonder("faks", "02120000000", "Desteklenmeyen kanal."),
     ]
+
+    merkez.strateji_degistir(OncelikliGonderimStratejisi())
+    sonuclar.append(merkez.eposta_gonder("ogretmen@example.com", "Faz 3 kontrol bildirimi."))
 
     for sonuc in sonuclar:
         durum = "BASARILI" if sonuc.basarili else "BASARISIZ"
