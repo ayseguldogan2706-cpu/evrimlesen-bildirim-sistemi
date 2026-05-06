@@ -1,12 +1,13 @@
-from .kanallar import EpostaKanali, PushKanali, SmsKanali
+from .adapterler import PushServisAdapteri, SmsServisAdapteri
+from .kanallar import EpostaKanali
 
 
 class BildirimFabrikasi:
     def __init__(self):
         self.kanal_siniflari = {
             "eposta": EpostaKanali,
-            "sms": SmsKanali,
-            "push": PushKanali,
+            "sms": SmsServisAdapteri,
+            "push": PushServisAdapteri,
         }
 
     def kanal_olustur(self, kanal):
@@ -17,4 +18,3 @@ class BildirimFabrikasi:
 
     def kanal_ekle(self, kanal, kanal_sinifi):
         self.kanal_siniflari[kanal] = kanal_sinifi
-
