@@ -8,7 +8,7 @@ Bu projede **A - Bildirim Sistemi** konusu secildi. Baslangic kodunda e-posta, S
 
 ## Proje Durumu
 
-Bu dal, Faz 0 baslangic kodunu icerir. Kod bilerek sade ve tasarim oruntusu kullanmadan yazilmistir. Amac, sonraki fazlarda tasarim sorunlarini adim adim cozmek ve sistemin nasil evrimlestigini gostermektir.
+Bu dal, Faz 1 calismasini icerir. Baslangictaki tek sinifli yapi korunarak once sorunlar belgelendi, sonra nesne olusturma sorumlulugu Factory Method ile ayrildi.
 
 ## Calistirma
 
@@ -22,7 +22,10 @@ python -m bildirim.demo
 ## Fazlar
 
 - Faz 0: Baslangic kodu ve tasarim sorunlari analizi.
-- Faz 1: Creational oruntu ile nesne olusturma sorumlulugunun ayrilmasi.
+- Faz 1: Factory Method ile nesne olusturma sorumlulugunun ayrilmasi.
 - Faz 2: Structural oruntuler ile dis servis uyumu ve kullanim kolayligi.
 - Faz 3: Behavioral oruntuler ile genisletilebilir davranis yapisi.
 
+## Su Ana Kadar Kullanilan Oruntuler
+
+- **Factory Method:** Bildirim kanali nesnesi olusturma sorumlulugu `BildirimFabrikasi` sinifina tasindi.
