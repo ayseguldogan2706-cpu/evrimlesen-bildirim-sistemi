@@ -2,7 +2,7 @@
 
 ## Pair programming ozeti
 
-Bu fazda AI ile asil olarak iki konu uzerinde calistim: gonderim sonrasi olaylarin nasil ayrilacagi ve gonderim davranisinin nasil degistirilebilir yapilacagi. Once Observer icin olay yayinci ve dinleyici yapisini tartistim. Sonra Strategy icin `BildirimMerkezi` uzerinden degistirilebilir bir gonderim politikasi kurmanin daha anlasilir olacagina karar verdim.
+Yaklasik 30 dakikalik AI pair programming oturumunda asil olarak iki konu uzerinde calistim: gonderim sonrasi olaylarin nasil ayrilacagi ve gonderim davranisinin nasil degistirilebilir yapilacagi. Once Observer icin olay yayinci ve dinleyici yapisini tartistim. Sonra Strategy icin `BildirimMerkezi` uzerinden degistirilebilir bir gonderim politikasi kurmanin daha anlasilir olacagina karar verdim.
 
 ## AI'a sordugum temel promptlar
 

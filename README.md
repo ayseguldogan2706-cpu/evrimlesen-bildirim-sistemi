@@ -66,25 +66,40 @@ classDiagram
         +gonder(sistem, kanal, alicilar, mesaj, oncelik)
     }
 
+    class SiraliGonderimStratejisi
+    class OncelikliGonderimStratejisi
     class BildirimSistemi
     class BildirimFabrikasi
     class BildirimKanali {
         <<abstract>>
         +gonder(istek)
     }
+    class EpostaKanali
     class SmsServisAdapteri
     class PushServisAdapteri
-    class OlayYayinci
-    class GonderimGecmisi
+    class OlayYayinci {
+        +dinleyici_ekle(dinleyici)
+        +yayinla(olay)
+    }
+    class GonderimGecmisi {
+        +olay_al(olay)
+    }
+    class HariciSmsServisi
+    class HariciPushServisi
 
     BildirimMerkezi --> GonderimStratejisi : Strategy
+    GonderimStratejisi <|-- SiraliGonderimStratejisi
+    GonderimStratejisi <|-- OncelikliGonderimStratejisi
     BildirimMerkezi --> BildirimSistemi : Facade
     BildirimSistemi --> BildirimFabrikasi : Factory Method
     BildirimSistemi --> OlayYayinci : Observer
     OlayYayinci --> GonderimGecmisi
     BildirimFabrikasi --> BildirimKanali
+    BildirimKanali <|-- EpostaKanali
     BildirimKanali <|-- SmsServisAdapteri
     BildirimKanali <|-- PushServisAdapteri
+    SmsServisAdapteri --> HariciSmsServisi : Adapter
+    PushServisAdapteri --> HariciPushServisi : Adapter
 ```
 
 ## Acik/Kapali Prensibi
