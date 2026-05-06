@@ -8,7 +8,7 @@ Bu projede **A - Bildirim Sistemi** konusu secildi. Baslangic kodunda e-posta, S
 
 ## Proje Durumu
 
-Bu dal, Faz 1 calismasini icerir. Baslangictaki tek sinifli yapi korunarak once sorunlar belgelendi, sonra nesne olusturma sorumlulugu Factory Method ile ayrildi.
+Bu dal, Faz 2 calismasini icerir. Factory Method ile ayrilan kanal yapisi, Adapter ve Facade oruntuleriyle dis servislerle uyumlu ve daha kolay kullanilir hale getirildi.
 
 ## Calistirma
 
@@ -23,9 +23,11 @@ python -m bildirim.demo
 
 - Faz 0: Baslangic kodu ve tasarim sorunlari analizi.
 - Faz 1: Factory Method ile nesne olusturma sorumlulugunun ayrilmasi.
-- Faz 2: Structural oruntuler ile dis servis uyumu ve kullanim kolayligi.
+- Faz 2: Adapter ve Facade ile dis servis uyumu ve kullanim kolayligi.
 - Faz 3: Behavioral oruntuler ile genisletilebilir davranis yapisi.
 
 ## Su Ana Kadar Kullanilan Oruntuler
 
 - **Factory Method:** Bildirim kanali nesnesi olusturma sorumlulugu `BildirimFabrikasi` sinifina tasindi.
+- **Adapter:** SMS ve push icin ornek dis servisler ortak bildirim arayuzune uyarlandi.
+- **Facade:** `BildirimMerkezi`, sistemin ana kullanim noktasi olarak eklendi.

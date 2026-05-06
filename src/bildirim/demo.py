@@ -1,24 +1,22 @@
-from .basit_sistem import BildirimSistemi
+from .merkez import BildirimMerkezi
 
 
 def main():
-    sistem = BildirimSistemi()
-    ornekler = [
-        ("eposta", "aysegul@example.com", "Odev bildirimi hazir.", "normal"),
-        ("sms", "+90 555 111 2233", "Teslim tarihi yaklasiyor.", "yuksek"),
-        ("push", "cihaz-12345", "Yeni bildirim var.", "normal"),
-        ("faks", "02120000000", "Desteklenmeyen kanal.", "normal"),
+    merkez = BildirimMerkezi()
+    sonuclar = [
+        merkez.eposta_gonder("aysegul@example.com", "Odev bildirimi hazir."),
+        merkez.sms_gonder("+90 555 111 2233", "Teslim tarihi yaklasiyor.", "yuksek"),
+        merkez.push_gonder("cihaz-12345", "Yeni bildirim var."),
+        merkez.bildirim_gonder("faks", "02120000000", "Desteklenmeyen kanal."),
     ]
 
-    for kanal, alici, mesaj, oncelik in ornekler:
-        sonuc = sistem.bildirim_gonder(kanal, alici, mesaj, oncelik)
+    for sonuc in sonuclar:
         durum = "BASARILI" if sonuc.basarili else "BASARISIZ"
         print(f"{durum}: {sonuc.detay}")
 
     print("\nGonderim gecmisi")
-    sistem.gecmis_yazdir()
+    merkez.gecmis_yazdir()
 
 
 if __name__ == "__main__":
     main()
-
