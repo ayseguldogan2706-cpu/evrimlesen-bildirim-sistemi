@@ -34,7 +34,29 @@ Sistem dis SMS ve push servislerinin ayrintilarini bilmeden bildirim gonderebili
 `BildirimMerkezi`, e-posta, SMS, push ve toplu gonderim islemlerini tek bir kolay kullanim noktasi olarak sunar.
 
 **Neden secildi?**  
-Factory, kanal siniflari ve adapterler sistemin ic tasarimini olusturur. Kullanici veya demo kodunun bu ayrintilari bilmesi gereksizdir. Facade, bu karmaşayi daha sade bir arayuz arkasina alir.
+Factory, kanal siniflari ve adapterler sistemin ic tasarimini olusturur. Kullanici veya demo kodunun bu ayrintilari bilmesi gereksizdir. Facade, bu karmasayi daha sade bir arayuz arkasina alir.
 
 **Ne kazandirdi?**  
 Demo ve dis kullanim kodu daha okunur hale geldi. Bildirim gondermek isteyen taraf `BildirimMerkezi` uzerinden islem yapar; fabrika ve adapter ayrintilari icerde kalir.
+
+## Faz 3 - Observer
+
+**Nerede kullanildi?**  
+`OlayYayinci`, gonderim tamamlandiginda `BildirimOlayi` yayinlar. `GonderimGecmisi` bu olayi dinleyerek gonderim sonucunu kaydeder. Disaridan baska dinleyiciler de sisteme eklenebilir.
+
+**Neden secildi?**  
+Baslangic kodunda gonderim sonrasi yapilacak her is ana metodun icine eklenmek zorundaydi. Observer, gonderim yapan sinif ile gonderimden sonra tepki veren siniflari birbirinden ayirir.
+
+**Ne kazandirdi?**  
+Gecmis tutma, raporlama veya test amacli olay izleme gibi davranislar ana gonderim kodunu buyutmeden eklenebilir hale geldi.
+
+## Faz 3 - Strategy
+
+**Nerede kullanildi?**  
+`BildirimMerkezi`, gonderim davranisini `GonderimStratejisi` uzerinden kullanir. Varsayilan davranis `SiraliGonderimStratejisi`, onceligi zorlayan davranis ise `OncelikliGonderimStratejisi` ile verildi.
+
+**Neden secildi?**  
+Farkli gonderim kurallari ana sinifa `if` bloklari olarak eklenirse sistem tekrar baslangictaki soruna doner. Strategy, bu kurallari degistirilebilir siniflar haline getirir.
+
+**Ne kazandirdi?**  
+Gonderim politikasi runtime'da degistirilebilir hale geldi. Testlerde yeni bir strateji sinifi yazilarak mevcut sistem kodu degistirilmeden yeni davranis eklendi; bu Acik/Kapali Prensibi'ni gosterir.
