@@ -34,14 +34,14 @@ pytest -q
 
 GitHub Actions, her push ve pull request icin ayni testleri calistirir.
 
-## Fazlar
+## Evrimlesme Akisi
 
-- Faz 0: Baslangic kodu ve tasarim sorunlari analizi.
-- Faz 1: Factory Method ile nesne olusturma sorumlulugunun ayrilmasi.
-- Faz 2: Adapter ve Facade ile dis servis uyumu ve kullanim kolayligi.
-- Faz 3: Observer ve Strategy ile genisletilebilir davranis yapisi.
+- Faz 0: `BildirimSistemi`, kanal secimi, dogrulama, gonderim ve gecmis tutma islerini tek sinifta topluyordu. Bu sorunlar `PROBLEMS.md` icinde listelendi.
+- Faz 1: Factory Method ile kanal nesnesi olusturma sorumlulugu ana gonderim akisindan ayrildi.
+- Faz 2: Adapter ile SMS/push dis servisleri ortak arayuze uyarlandi; Facade ile sistemin dis kullanimi sade hale getirildi.
+- Faz 3: Observer ile gonderim sonrasi tepkiler ayrildi; Strategy ile gonderim politikasi degistirilebilir hale getirildi ve OCP testle gosterildi.
 
-## Su Ana Kadar Kullanilan Oruntuler
+## Kullanilan Tasarim Oruntuleri
 
 - **Factory Method:** Bildirim kanali nesnesi olusturma sorumlulugu `BildirimFabrikasi` sinifina tasindi.
 - **Adapter:** SMS ve push icin ornek dis servisler ortak bildirim arayuzune uyarlandi.
