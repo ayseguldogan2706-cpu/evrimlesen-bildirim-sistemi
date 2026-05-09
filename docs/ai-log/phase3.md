@@ -24,6 +24,12 @@ Strategy icin `GonderimStratejisi`, `SiraliGonderimStratejisi` ve `OncelikliGond
 
 AI ilk basta Command oruntusunu da eklemeyi onerdi. Bunu uygulamadim, cunku odev zaten yeterli sayida oruntu iceriyordu ve Command eklemek projeyi gereksiz buyutecekti. Ayrica Command, bu sistemde Strategy kadar dogrudan bir problemi cozmuyordu. Bu nedenle iki Behavioral oruntuyle kalmak daha net ve savunulabilir oldu.
 
+Command icin kuyruklama, geri alma, zamanlanmis calistirma veya her bildirimi ayri bir komut nesnesi olarak saklama gibi bir ihtiyac tanimlamamistim. Bu ihtiyaclar yokken Command eklemek sadece "bir oruntu daha kullanildi" gibi duracakti. Strategy ise gercek soruna daha dogrudan cevap verdi: ayni bildirim altyapisi korunurken gonderim politikasinin degisebilmesi.
+
+AI ayrica davranislari cok hizli ayri siniflara bolmeyi onerdi. Bunu sinirli tuttum; cunku amac her yardimci islemi soyutlamak degil, Faz 3'te genisletilebilir davranisi gostermekti. Bu nedenle Observer sadece gonderim sonrasi olaylara, Strategy ise gonderim politikasina odaklandi.
+
 ## AI olmadan bu faz ne kadar surerdi?
 
 AI olmadan bu fazin yaklasik 4-5 saat surecegini dusunuyorum. AI, Observer ve Strategy arasindaki sorumluluk ayrimini tartismada yardimci oldu. Yine de hangi oruntuyu uygulayip hangisini reddedecegime ben karar verdim; cunku fazla oruntu eklemek odevin okunurlugunu azaltabilirdi.
+
+Kod ve dokumantasyon degisikliklerini commit ederken de fazin parcalarini mantiksal olarak ayirdim: once davranissal oruntuler, sonra test/CI, sonra dokumantasyon. Bu ayrim, hangi degisikligin hangi odev gereksinimini karsiladigini daha kolay gostermek icindi.
