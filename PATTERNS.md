@@ -9,13 +9,13 @@ Faz 0'da bilerek tasarim oruntusu uygulanmadi. Amac, baslangic kodundaki sorunla
 ## Faz 1 - Factory Method
 
 **Nerede kullanildi?**  
-`BildirimFabrikasi`, istenen kanal adina gore `EpostaKanali`, `SmsKanali` veya `PushKanali` nesnesi olusturur. `BildirimSistemi` artik kanal siniflarini dogrudan bilmek yerine fabrikadan nesne ister.
+`BildirimFabrikasi`, istenen kanal adina gore uygun `BildirimKanali` nesnesini olusturur. Faz 1'de bu nesneler `EpostaKanali`, `SmsKanali` ve `PushKanali` idi; Faz 2'den sonra SMS ve push icin `SmsServisAdapteri` ve `PushServisAdapteri` kullanildi. `BildirimSistemi` artik kanal siniflarini dogrudan bilmek yerine fabrikadan nesne ister.
 
 **Neden secildi?**  
 Baslangic kodunda hangi bildirim kanalinin kullanilacagina `if-elif` zinciriyle karar veriliyordu. Bu karar ana gonderim metodunun icinde oldugu icin yeni kanal eklemek mevcut metodu buyutuyordu. Factory Method, nesne olusturma sorumlulugunu daha merkezi ve degistirilebilir bir yere tasidi.
 
 **Ne kazandirdi?**  
-Kanal secimi ile gonderim akisi birbirinden ayrildi. `BildirimSistemi` daha kucuk ve okunur hale geldi. Yeni kanal ekleme ihtiyaci dogdugunda ana gonderim akisini degistirmek yerine fabrika kaydi guncellenebilir.
+Kanal secimi ile gonderim akisi birbirinden ayrildi. `BildirimSistemi` daha kucuk ve okunur hale geldi. Yeni kanal ekleme ihtiyaci dogdugunda ana gonderim akisini degistirmek yerine fabrika kaydi veya ilgili kanal/adapter sinifi guncellenebilir.
 
 ## Faz 2 - Adapter
 
