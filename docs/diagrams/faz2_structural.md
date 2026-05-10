@@ -1,5 +1,38 @@
 # Faz 2 Structural UML
 
+## Once
+
+```mermaid
+classDiagram
+    class BildirimSistemi {
+        +bildirim_gonder(kanal, alici, mesaj, oncelik)
+        +toplu_bildirim_gonder(kanal, alicilar, mesaj, oncelik)
+    }
+
+    class BildirimFabrikasi {
+        +kanal_olustur(kanal)
+    }
+
+    class BildirimKanali {
+        <<abstract>>
+        +gonder(istek)
+    }
+
+    class EpostaKanali
+    class SmsKanali
+    class PushKanali
+
+    BildirimSistemi --> BildirimFabrikasi
+    BildirimFabrikasi --> BildirimKanali
+    BildirimKanali <|-- EpostaKanali
+    BildirimKanali <|-- SmsKanali
+    BildirimKanali <|-- PushKanali
+```
+
+Faz 1 sonunda kanal olusturma fabrikaya alinmisti, fakat SMS ve push hala sistemin bekledigi arayuze zaten uyuyormus gibi modelleniyordu. Dis servislerin farkli metot adlari ve donus bicimleri henuz ayrilmamisti.
+
+## Sonra
+
 ```mermaid
 classDiagram
     class BildirimMerkezi {
@@ -45,4 +78,3 @@ classDiagram
 ```
 
 Bu fazda Adapter dis servis uyumsuzlugunu, Facade ise kullanim karmasikligini azaltir.
-
